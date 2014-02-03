@@ -9,4 +9,19 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
+require 'securerandom'
+
+def secure_token
+  token_file = Rails.root.join('.secret')
+  if File.exist?(token_file)
+    # Use the existing token.
+    File.read(token_file).chomp
+  else
+    # Generate a new token and store it in token_file.
+    token = SecureRandom.hex(64)
+    File.write(token_file, token)
+    token
+  end
+end
+
 GymBuddyApp::Application.config.secret_key_base = 'a2283dc916f9b67eff6b91ed0e6d81eecfdc0352dd4852be1e034b68f2916aa32fa42b4c26f7c70c409065166afe23f4cfbb7f617f4d5315d340d8c0ae021053'
