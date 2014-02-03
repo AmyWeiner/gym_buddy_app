@@ -6,9 +6,9 @@ GymBuddyApp::Application.routes.draw do
 
   get '/site/home', to: 'site#index'
 
-  get '/site/contact', to: 'site#contact'
+  get '/site/contact', to: 'site#contact', as: 'contact'
 
-  get '/site/about', to: 'site#about'
+  get '/site/about', to: 'site#about', as: 'about'
 
   get '/signup', to: 'users#new'
 

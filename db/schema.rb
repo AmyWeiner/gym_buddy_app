@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140202001222) do
+ActiveRecord::Schema.define(version: 20140203060907) do
 
   create_table "clients", force: true do |t|
     t.string   "name"
@@ -42,6 +42,12 @@ ActiveRecord::Schema.define(version: 20140202001222) do
 
   add_index "memberships", ["client_id"], name: "index_memberships_on_client_id"
   add_index "memberships", ["gym_id"], name: "index_memberships_on_gym_id"
+
+  create_table "schedules", force: true do |t|
+    t.string   "availability"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "name"
