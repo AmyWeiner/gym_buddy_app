@@ -1,5 +1,9 @@
-<h1>Manage Fitness Centers</h1>
-<%= link_to "Add Fitness Center", new_gym_path, class: "btn btn-large btn-primary" %>
-<%= link_to "Edit Fitness Center", gym_path, class: "btn btn-large btn-primary" %>
-<%= link_to "Delete Fitness Centers", gym_path, class: "btn btn-large btn-primary" %>
+<h1>Current Fitness Center</h1>
 
+  <h4>Name: <%= @gym.name %></h4>
+  <h4>Street: <%= @gym.street %></h4>
+  <h4>City: <%= @gym.city %></h4>
+  <h4>State: <%= @gym.state %></h4>         
+  <h4>Zip Code: <%= @gym.zip_code %></h4>         
+
+<%= link_to "Update Fitness Center", edit_gym_path, class: "btn btn-large btn-primary" %>

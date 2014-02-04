@@ -19,4 +19,6 @@ GymBuddyApp::Application.routes.draw do
   get '/gyms/new', to: 'gyms#new'
 
   get '/schedules/new', to: 'schedules#new'
+
+  delete '/gyms/:id', to: 'gyms#destroy', as: 'delete_gym'
 end

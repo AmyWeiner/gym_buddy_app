@@ -1,2 +1,17 @@
-<h1>Schedules#edit</h1>
-<p>Find me in app/views/schedules/edit.html.erb</p>
+<% provide(:title, 'Update Schedule') %>
+<h1>Add New Schedule</h1>
+
+<h4>Please enter your avilability as a comma-separated list of days and times, using the ':' character as a delimeter between the day and time, for a given day. Please do not use the ':' character in the time itself, and use the abbreviations AM and PM to denote morning and afternoon, respectively. Use the example below as a guide:</h4>
+
+<p>Monday:6AM-7AM,Tuesday:8PM-9PM,Wednesday:630AM-730AM,Thursday:815PM-915PM</p>
+
+<div class="row">
+    <div class="span6 offset3">
+        <%= form_for(@schedule) do |f| %>
+            <%= f.label :availability %></br>
+            <%= f.text_field :availability %></br></br>
+
+            <%= f.submit "Update Schedule", class: "btn btn-large btn-primary" %>
+        <% end %>
+    </div>
+</div>

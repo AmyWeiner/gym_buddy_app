@@ -4,15 +4,20 @@
         <section>
         	<h3>Personal Details: </h3>
             <h4>Name: <%= @user.name %></h4>
-            <h4>Email: <%= @user.email %></h4>
+            <h4>Email: <%= @user.email %></h4><%= link_to "Manage Account", edit_user_path, class: "btn btn-large btn-primary" %>
             <h3>Gym Details: </h3>
-       		<h4>Gym Name: <%= @user.gym.name %></h4>
-       		<h4>Gym Location: <%= @user.gym.street %>, <%= @user.gym.city %>, <%= @user.gym.state %>, <%= @user.gym.zip_code %></h4>
+          <% unless @user.gym.nil? %>  
+       		  <h4>Gym Name: <%= @user.gym.name %></h4>
+       		  <h4>Gym Location: <%= @user.gym.street %> <%= @user.gym.city %> <%= @user.gym.state %> <%= @user.gym.zip_code %></h4>
+          <% end %>
+          <%= link_to "Manage Fitness Center", gym_path, class: "btn btn-large btn-primary" %>
        		<h3>Schedule Details: </h3>
-       		<h4>Availability: <%= @user.schedule.availability %></h4>
+       		<% unless @user.schedule.nil? %>  
+            <h4>Availability: <%= @user.schedule.availability %></h4>
+          <% end %>
+          <%= link_to "Manage Schedule", edit_schedule_path, class: "btn btn-large btn-primary" %>
         </section>
     </aside>
 </div>
 
-<%= link_to "Manage Fitness Centers", gym_path, class: "btn btn-large btn-primary" %>
-<%= link_to "Manage Schedules", schedule_path, class: "btn btn-large btn-primary" %>
+
