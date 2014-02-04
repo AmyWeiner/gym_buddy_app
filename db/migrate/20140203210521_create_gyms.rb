@@ -6,6 +6,7 @@ class CreateGyms < ActiveRecord::Migration
       t.string :city
       t.string :state
       t.string :zip_code
+      t.belongs_to :user, index: true
 
       t.timestamps
     end

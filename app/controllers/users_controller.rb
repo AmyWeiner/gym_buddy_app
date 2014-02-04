@@ -1,22 +1,22 @@
 class UsersController < ApplicationController
 
-  def new
-    @user = User.new
-  end
-
   def show
     @user = User.find(params[:id])
+  end
+
+  def new
+    @user = User.new()
   end
 
   def create
     new_user = params.require(:user).permit(:name, :email, :password, :password_confirmation)
     @user=User.new(new_user)
     if @user.save
-        flash[:success] = "You are logged in to your account"
-        # sign_in @user
-        redirect_to @user
+      flash[:success] = "Welcome to the Gym Buddy App!"
+      sign_in @user
+      redirect_to @user
     else
-        render'new'
+      render'new'
     end
   end
 
@@ -25,5 +25,5 @@ class UsersController < ApplicationController
     @user.update_attributes(params[:user])
     render :show
   end
-  
+
 end

@@ -32,6 +32,9 @@ group :development, :test do
   gem 'guard-rspec', '2.5.0'
   gem 'spork-rails', '4.0.0'
   gem 'guard-spork', '1.5.0'
+  gem 'better_errors'
+  gem 'quiet_assets'
+  gem 'binding_of_caller'
 end
 
 group :doc do

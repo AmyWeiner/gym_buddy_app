@@ -15,4 +15,8 @@ GymBuddyApp::Application.routes.draw do
   delete '/signout', to: 'sessions#destroy'
   
   get'/signin', to: 'sessions#new'
+
+  get '/gyms/new', to: 'gyms#new'
+
+  get '/schedules/new', to: 'schedules#new'
 end

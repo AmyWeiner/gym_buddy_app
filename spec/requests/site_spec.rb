@@ -27,3 +27,17 @@ describe "About page" do
     it { should have_title("#{base_title} | About") }
   end
 end
+
+
+
+
+
+
+
+
+
+
+
+
+
+

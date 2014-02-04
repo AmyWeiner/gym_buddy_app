@@ -8,11 +8,11 @@
 #  city       :string(255)
 #  state      :string(255)
 #  zip_code   :string(255)
+#  user_id    :integer
 #  created_at :datetime
 #  updated_at :datetime
 #
 
 class Gym < ActiveRecord::Base
-	has_many :memberships
-	has_many :clients, through: :memberships
+  belongs_to :user
 end

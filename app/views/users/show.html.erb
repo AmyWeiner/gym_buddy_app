@@ -1,8 +1,18 @@
+<h1>Profile</h1>
 <div class="row">
     <aside class="span4">
         <section>
-            <h3><%= @user.name %></h3>
-            <h3><%= @user.email %></h3>
+        	<h3>Personal Details: </h3>
+            <h4>Name: <%= @user.name %></h4>
+            <h4>Email: <%= @user.email %></h4>
+            <h3>Gym Details: </h3>
+       		<h4>Gym Name: <%= @user.gym.name %></h4>
+       		<h4>Gym Location: <%= @user.gym.street %>, <%= @user.gym.city %>, <%= @user.gym.state %>, <%= @user.gym.zip_code %></h4>
+       		<h3>Schedule Details: </h3>
+       		<h4>Availability: <%= @user.schedule.availability %></h4>
         </section>
     </aside>
 </div>
+
+<%= link_to "Manage Fitness Centers", gym_path, class: "btn btn-large btn-primary" %>
+<%= link_to "Manage Schedules", schedule_path, class: "btn btn-large btn-primary" %>

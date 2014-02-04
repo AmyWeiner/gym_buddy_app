@@ -1,7 +1,8 @@
 class CreateSchedules < ActiveRecord::Migration
   def change
     create_table :schedules do |t|
-      t.string :availability
+      t.text :availability
+      t.belongs_to :user, index: true
 
       t.timestamps
     end
