@@ -1,10 +1,32 @@
 class GymsController < ApplicationController
-  def index
-  	@gym = Gym.new
+  
+
+  def add
+    city = params[:city]
+    state = params[:state]
+    @gyms = Gym.gyms_near(city, state)
+    
+    businesses = @gyms["businesses"]   
+
+    @gyms_array_hashes = []
+     businesses.each do |business|
+      gym = {}
+      gym[:name] = business["name"],
+      gym[:street] = business["location"]["address"][0],
+      gym[:city] = business["location"]["city"],
+      gym[:state] = business["location"]["state_code"],
+      gym[:zip_code] = business["location"]["postal_code"]
+      @gyms_array_hashes.push(gym)
+    end
+    render 'add'
   end
 
   def new
   	@gym = Gym.new
+  end
+
+  def create
+
   end
 
   def show

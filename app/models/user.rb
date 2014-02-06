@@ -13,7 +13,8 @@
 
 class User < ActiveRecord::Base
   has_one :schedule
-  has_one :gym
+  
+  belongs_to :gym
   
   has_secure_password
 

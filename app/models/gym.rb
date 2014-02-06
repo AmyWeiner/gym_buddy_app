@@ -14,5 +14,15 @@
 #
 
 class Gym < ActiveRecord::Base
-  belongs_to :user
+  has_many :users
+
+  def self.gyms_near(city, state)
+    # construct a client instance
+    client = Yelp::Client.new
+
+    include Yelp::V2::Search::Request
+
+  	request = Location.new(:term => "gyms", :city => "#{city}", :state => "#{state}")
+  	@response = client.search(request)
+  end
 end

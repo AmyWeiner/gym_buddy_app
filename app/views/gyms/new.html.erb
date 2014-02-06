@@ -1,24 +1,20 @@
-<% provide(:title, 'Add Fitness Center') %>
-<h1>Add Fitness Center</h1>
+
+<% provide(:title, 'Select Fitness Center') %>
+<h1>Select Fitness Center</h1>
+
+<h3>Select a fitness center from the dropdown menu below:</h3>
+
 <div class="row">
     <div class="span6 offset3">
-        <%= form_for(@gym) do |f| %>
+        <% if false%>
+        <%= form_for :gym, url: "/gyms/new", method: "post" do |f| %>
             <%= f.label :name %></br>
-            <%= f.text_field :name %></br></br>
-
-            <%= f.label :street %></br>
-            <%= f.text_field :street %></br></br>
-
-            <%= f.label :city %></br>
-            <%= f.password_field :city %></br></br>
-
-            <%= f.label :state %></br>
-            <%= f.password_field :state %></br></br>
-
-            <%= f.label :zip_code %></br>
-            <%= f.password_field :zip_code %></br></br>
-
-            <%= f.submit "Add Fitness Center", class: "btn btn-large btn-primary" %>
+             <% gyms = Gym.all.map {|gym| [gym.name, gym.id] }%>
+             <%= f.select(:name, gyms) %> <br>
+        <% end %>
         <% end %>
     </div>
 </div>
+
+<h3>Or, click the following button to search for and add your gym</h3>
+<%= link_to "Add Fitness Center", add_path, class: "btn btn-large btn-primary" %>

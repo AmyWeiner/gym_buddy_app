@@ -1,0 +1,18 @@
+<% provide(:title, 'Find Fitness Center') %>
+<h1>Find Fitness Center</h1>
+
+<%= form_tag("/add/gyms", method: "get") do %>
+<%= label_tag(:city, "Enter City:") %></br>
+<%= text_field_tag(:city) %></br>
+<%= label_tag(:state, "Enter State:") %></br>
+<%= text_field_tag(:state) %></br></br>
+<%= submit_tag("Search") %></br></br>
+<% end %>
+
+<%= label_tag(:results, "Results:") %></br>
+<%= select_tag 'gyms', options_for_select(@gyms_array_hashes.collect{ |gym, index| [gym[:name], index] }) %></br></br>
+
+<%= link_to "Add Fitness Center", add_path, class: "btn btn-large btn-primary" %>
+
+
+

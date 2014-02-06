@@ -1,6 +1,6 @@
 GymBuddyApp::Application.routes.draw do
   
-  resources :clients, :users, :gyms, :sessions, :schedules 
+  resources :users, :schedules, :gyms
 
   root to: 'site#index'
 
@@ -18,7 +18,9 @@ GymBuddyApp::Application.routes.draw do
 
   get '/gyms/new', to: 'gyms#new'
 
-  get '/schedules/new', to: 'schedules#new'
+  get '/add/gyms', to: 'gyms#add', as: 'add'
 
-  delete '/gyms/:id', to: 'gyms#destroy', as: 'delete_gym'
+  get '/schedules/new', to: 'schedules#new'
 end
+
+
