@@ -121,3 +121,14 @@ footer ul li {
   @extend .control-group;
   @extend .error;
 }
+
+.span4 {
+  float: left;
+}
+
+.span3 {
+  float: right;
+  font-size: 1.5em;
+  line-height: 1.7em;
+  font-weight: bold;
+}

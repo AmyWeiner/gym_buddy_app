@@ -1,4 +1,5 @@
 class SchedulesController < ApplicationController
+  include SessionsHelper
   def index
     @schedule = Schedule.new
   end

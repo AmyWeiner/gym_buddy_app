@@ -1,6 +1,6 @@
 GymBuddyApp::Application.routes.draw do
   
-  resources :users, :schedules, :gyms
+  resources :users, :schedules, :gyms, :sessions
 
   root to: 'site#index'
 
@@ -21,6 +21,8 @@ GymBuddyApp::Application.routes.draw do
   get '/add/gyms', to: 'gyms#add', as: 'add'
 
   get '/schedules/new', to: 'schedules#new'
+
+  post '/user/joingym', to: 'users#join_gym'
 end
 
 

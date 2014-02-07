@@ -22,6 +22,35 @@
           <%= link_to "Manage Schedule", edit_schedule_path, class: "btn btn-large btn-primary" %>
         </section>
     </aside>
+    <aside class="span3">
+        <section>
+          <h3>Find Gym Buddies: </h3>
+            <table>
+              <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th></th>
+                <th></th>
+              </tr>
+            <%= form_for(@user) do |f| %>
+              <%= f.submit "Search", class: "btn btn-large btn-primary" %></br></br>
+            <% end %>
+    
+              <%if (current_user.gym_id) %>
+               <% @users = User.where("gym_id = '#{current_user.gym_id}'") %>
+              <% @users.each do |user| %>
+                
+                <tr>
+                <td><%= user.name %></td>
+                <td><%= user.email %></td>
+                <td><%= link_to 'Contact' %></td>
+                </tr>
+          
+            <% end %>
+            <% end %>
+            </table>
+        </section>
+    </aside>
 </div>
 
 
